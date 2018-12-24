@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rotuladora</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="frontend.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+    <script>firebase.initializeApp(config);</script>
+
+    <script>
+    var progreso = firebase.database().ref('response/progres');
+    progreso.on('value', function(snapshot) {
+        const progres = snapshot.val()+"%"
+        document.getElementById("salida").textContent = progres;
+    });
+    </script>
+</head>
+<body>
+    <hr>
+<div style="padding: 20px" class="alert alert-info" role="alert">
+    <h3 class="alert-heading">Rotuladora!</h3>
+    <p>Escribe abajo el texto que quieras imprimir y dale enviar!</p>
+    <hr>
+
+<div style="padding: 20px"  class="form-group">
+        <h5><label for="txt" >Texto a imprimir</label></h5>
+        <input type="text" class="form-control" id="txt" placeholder="Texto">
+        <hr>
+        <button type="button" class="btn btn-dark" onclick="enviartexto(getElementById('txt').value , '1')">Enviar</button>
+</div>
+
+<div style="padding: 20px"  class="form-group">
+        <h5>Progreso de impresion</h5>
+        <!-- <div class="progress" style="height: 50px"> -->
+        <!-- <div id="bar" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div> -->
+        <h5 id="salida"></h5>
+    </div>
+    
+</div>
+</div>
+
+<hr>
+</body>
+</html>

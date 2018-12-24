@@ -1,0 +1,19 @@
+{
+  "name": "platzi",
+  "version": "1.0.0",
+  "description": "Aplicativo de electron aprendizaje Platzi",
+  "main": "index.js",
+  "dependencies": {
+    "electron-compile": "^6.4.3"
+  },
+  "devDependencies": {
+    "electron": "^4.0.0",
+    "electron-prebuilt-compile": "^3.0.13"
+  },
+  "scripts": {
+    "dev": "electron src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
